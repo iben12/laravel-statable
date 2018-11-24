@@ -1,12 +1,17 @@
 # Statable trait for Laravel Eloquent models
 
-This is a trait provides drop-in functionality to manage state and state history of an existing Eloquent Model based on [winzou/state-machine](https://github.com/winzou/state-machine) using [sebdesign/laravel-state-machine](https://github.com/sebdesign/laravel-state-machine) service provider.
+This trait provides drop-in functionality to manage state and state history of an existing Eloquent Model based on [winzou/state-machine](https://github.com/winzou/state-machine) using [sebdesign/laravel-state-machine](https://github.com/sebdesign/laravel-state-machine) service provider.
 
 ## Installation
 
 Use composer to pull in the package:
 ```
 $ composer require iben12/laravel-statable
+```
+Publish the database migration and state machine config:
+```
+$ php artisan vendor:publish --provider="Iben\Statable\ServiceProvider" --tag="migrations"
+$ php artisan vendor:publish --provider="Sebdesign\SM\ServiceProvider" --tag="config" 
 ```
 Migrate the database:
 ```
@@ -21,7 +26,6 @@ This migration creates the table for storing history of your models as a polymor
 
 #### Setup
 
-If you used the `php artisan vendor:publish` command described in installation, you have a `create_state_history_table` migration in your migrations folder. This migration creates the table for storing history of your models as a polymorphic relation.
 For this manual we will use a `Post` model as example.
 
 First you configure the SM graph. Open `config/state-machine.php` and define a new graph:
@@ -79,7 +83,7 @@ class Post extends Model
 
     protected function getGraph()
     {
-    	retrun 'graphName'; // the SM config to use
+    	retrun 'post'; // the SM config to use
 	}
 }
 ```

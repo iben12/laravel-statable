@@ -19,7 +19,11 @@ class ServiceProvider extends BaseServiceProvider
      */
     public function boot()
     {
-        $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
+        if (! class_exists('CreateStateHistoryTable')) {
+            $this->publishes([
+                __DIR__.'/../database/migrations/create_state_history_table.php.stub' => database_path('migrations/'.date('Y_m_d_His', time()).'_create_state_history_table.php'),
+            ], 'migrations');
+        }
     }
 
     /**

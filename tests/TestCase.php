@@ -73,7 +73,7 @@ abstract class TestCase extends BaseTestCase
             $table->timestamps();
         });
 
-        include_once __DIR__.'/../database/migrations/create_state_history_table.php';
+        include_once __DIR__.'/../database/migrations/create_state_history_table.php.stub';
 
         (new \CreateStateHistoryTable())->up();
 
