@@ -15,9 +15,8 @@ class StatableTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-//        $this->app->bind(StateHistoryManager::class);
-        $this->app['config']->set('state-machine.graphA.class', StatableArticle::class);
-        $this->app['config']->set('state-machine.graphA.callbacks.after.history.do', [StateHistoryManager::class, 'storeHistory']);
+        $this->app->bind(StateHistoryManager::class);
+        $this->app['config']->set('state-machine.article.class', StatableArticle::class);
 
         $this->article = StatableArticle::firstOrCreate([
             'title' => 'Test Article',
@@ -46,7 +45,7 @@ class StatableTest extends TestCase
      */
     public function it_applies_transition()
     {
-        $this->article->transition('create');
+        $this->article->apply('create');
 
         $this->assertEquals('pending_review', $this->article->stateIs());
 
@@ -60,7 +59,7 @@ class StatableTest extends TestCase
     {
         Auth::login(User::first());
 
-        $this->article->transition('create');
+        $this->article->apply('create');
 
         $this->assertEquals('create', $this->article->stateHistory()->first()->transition);
 
@@ -76,7 +75,7 @@ class StatableTest extends TestCase
         $article->title = 'Test Article';
         $article->state = 'new';
 
-        $article->transition('create');
+        $article->apply('create');
 
         $this->assertEquals('pending_review', $article->state);
     }
@@ -84,10 +83,27 @@ class StatableTest extends TestCase
     /**
      * @test
      */
+    public function it_saves_model_before_transition_if_save_before_transition_true()
+    {
+        $this->app['config']->set('state-machine.article.class', StatableArticleWithAutoSave::class);
+
+        $article = new StatableArticleWithAutoSave;
+        $article->title = 'Test Article';
+        $article->state = 'new';
+        $article->save();
+
+        $article->apply('create');
+        $this->assertEquals('pending_review', $article->state);
+        $this->assertEquals('create', $article->stateHistory()->first()->transition);
+    }
+
+    /**
+     * @test
+     */
     public function it_tests_transition_applicable()
     {
-        $this->assertTrue($this->article->transitionAllowed('create'));
-        $this->assertFalse($this->article->transitionAllowed('approve'));
+        $this->assertTrue($this->article->canApply('create'));
+        $this->assertFalse($this->article->canApply('approve'));
     }
 
     /**
@@ -97,6 +113,6 @@ class StatableTest extends TestCase
     {
         $this->expectException('SM\SMException');
 
-        $this->article->transition('approve');
+        $this->article->apply('approve');
     }
 }

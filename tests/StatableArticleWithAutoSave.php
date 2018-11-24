@@ -5,7 +5,7 @@ namespace Iben\Statable\Test;
 use Iben\Statable\Statable;
 use Illuminate\Database\Eloquent\Model;
 
-class StatableArticle extends Model
+class StatableArticleWithAutoSave extends Model
 {
     use Statable;
 
@@ -23,6 +23,6 @@ class StatableArticle extends Model
 
     protected function saveBeforeTransition()
     {
-        return false;
+        return true;
     }
 }

@@ -1,12 +1,12 @@
 <?php
 
 return [
-    'graphA' => [
+    'article' => [
         // class of your domain object
-        'class' => App\User::class,
+        'class' => App\Article::class,
 
         // name of the graph (default is "default")
-        'graph' => 'graphA',
+        'graph' => 'article',
 
         // property of your object holding the actual state (default is "state")
         'property_path' => 'state',
@@ -40,7 +40,7 @@ return [
                 'to' =>  'pending_review',
             ],
             'approve' => [
-                'from' => ['pending_review', 'rejected'],
+                'from' => ['pending_review'],
                 'to' =>  'accepted',
             ],
             'publish' => [
@@ -73,7 +73,11 @@ return [
             'before' => [],
 
             // will be called after applying a transition
-            'after' => [],
+            'after' => [
+                'history' => [
+                    'do' => 'StateHistoryManager@storeHistory'
+                ]
+            ],
         ],
     ],
 ];

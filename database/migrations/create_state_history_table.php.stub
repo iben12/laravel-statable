@@ -30,6 +30,6 @@ class CreateStateHistoryTable extends Migration
      */
     public function down()
     {
-        Schema::dropTable('state_history');
+        Schema::dropIfExists('state_history');
     }
 }

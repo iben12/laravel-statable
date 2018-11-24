@@ -19,6 +19,12 @@ class ServiceProvider extends BaseServiceProvider
      */
     public function boot()
     {
+        if ($this->app->runningInConsole()) {
+            $this->publishes([
+                __DIR__.'/../config/state-machine.php' => config_path('state-machine.php'),
+            ], 'config');
+        }
+
         if (! class_exists('CreateStateHistoryTable')) {
             $this->publishes([
                 __DIR__.'/../database/migrations/create_state_history_table.php.stub' => database_path('migrations/'.date('Y_m_d_His', time()).'_create_state_history_table.php'),
@@ -31,20 +37,8 @@ class ServiceProvider extends BaseServiceProvider
      */
     public function register()
     {
-        $this->app->bind(StateHistoryManager::class, function () {
+        $this->app->bind('StateHistoryManager', function () {
             return new StateHistoryManager();
         });
-    }
-
-    /**
-     * Get the services provided by the provider.
-     *
-     * @return array
-     */
-    public function provides()
-    {
-        return [
-            StateHistoryManager::class,
-        ];
     }
 }

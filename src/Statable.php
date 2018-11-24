@@ -25,7 +25,7 @@ trait Statable
      */
     public function addHistoryLine(array $transitionData)
     {
-        if ($this->id) {
+        if ($this->getKey()) {
             $transitionData['actor_id'] = $this->getActorId();
             $this->stateHistory()->create($transitionData);
         }
@@ -53,8 +53,11 @@ trait Statable
      * @return bool
      * @throws \SM\SMException|\Illuminate\Container\EntryNotFoundException
      */
-    public function transition($transition)
+    public function apply($transition)
     {
+        if ($this->getKey() === null && $this->saveBeforeTransition()) {
+            $this->save();
+        }
         return $this->stateMachine()->apply($transition);
     }
 
@@ -63,7 +66,7 @@ trait Statable
      * @return bool
      * @throws \SM\SMException|\Illuminate\Container\EntryNotFoundException
      */
-    public function transitionAllowed($transition)
+    public function canApply($transition)
     {
         return $this->stateMachine()->can($transition);
     }
@@ -87,5 +90,13 @@ trait Statable
     protected function getGraph()
     {
         return 'default';
+    }
+
+    /**
+     * @return bool
+     */
+    protected function saveBeforeTransition()
+    {
+        return false;
     }
 }
