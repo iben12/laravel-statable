@@ -3,8 +3,8 @@
 namespace Iben\Statable\Test;
 
 use Mockery;
-use Iben\Statable\Services\StateHistoryManager;
 use SM\Event\TransitionEvent;
+use Iben\Statable\Services\StateHistoryManager;
 
 class StateHistoryManagerTest extends TestCase
 {

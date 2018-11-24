@@ -27,7 +27,7 @@ class ServiceProvider extends BaseServiceProvider
      */
     public function register()
     {
-        $this->app->bind(StateHistoryManager::class, function() {
+        $this->app->bind(StateHistoryManager::class, function () {
             return new StateHistoryManager();
         });
     }
@@ -40,7 +40,7 @@ class ServiceProvider extends BaseServiceProvider
     public function provides()
     {
         return [
-            StateHistoryManager::class
+            StateHistoryManager::class,
         ];
     }
 }

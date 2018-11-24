@@ -2,11 +2,11 @@
 
 namespace Iben\Statable\Test;
 
-use Illuminate\Database\Schema\Blueprint;
+use Iben\Statable\ServiceProvider;
 use Illuminate\Foundation\Auth\User;
+use Illuminate\Database\Schema\Blueprint;
 use Orchestra\Testbench\TestCase as BaseTestCase;
 use Sebdesign\SM\ServiceProvider as SMServiceProvider;
-use Iben\Statable\ServiceProvider;
 
 abstract class TestCase extends BaseTestCase
 {

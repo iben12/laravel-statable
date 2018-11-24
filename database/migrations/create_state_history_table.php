@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
 class CreateStateHistoryTable extends Migration
 {
@@ -13,13 +13,13 @@ class CreateStateHistoryTable extends Migration
     public function up()
     {
         Schema::create('state_history', function (Blueprint $table) {
-           $table->increments('id');
-           $table->string('transition');
-           $table->string('from');
-           $table->string('to');
-           $table->integer('actor_id')->nullable();
-           $table->morphs('statable');
-           $table->timestamps();
+            $table->increments('id');
+            $table->string('transition');
+            $table->string('from');
+            $table->string('to');
+            $table->integer('actor_id')->nullable();
+            $table->morphs('statable');
+            $table->timestamps();
         });
     }
 
