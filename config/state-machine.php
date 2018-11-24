@@ -75,8 +75,8 @@ return [
             // will be called after applying a transition
             'after' => [
                 'history' => [
-                    'do' => 'StateHistoryManager@storeHistory'
-                ]
+                    'do' => 'StateHistoryManager@storeHistory',
+                ],
             ],
         ],
     ],
