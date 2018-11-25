@@ -1,5 +1,9 @@
 # Statable trait for Laravel Eloquent models
 
+[![Build Status](https://travis-ci.org/iben12/laravel-statable.svg?branch=master)](https://travis-ci.org/iben12/laravel-statable)
+[![StyleCI](https://github.styleci.io/repos/158932879/shield?branch=master)](https://github.styleci.io/repos/158932879)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/iben12/laravel-statable/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/iben12/laravel-statable/?branch=master)
+
 This trait provides drop-in functionality to manage state and state history of an existing Eloquent Model based on [winzou/state-machine](https://github.com/winzou/state-machine) using [sebdesign/laravel-state-machine](https://github.com/sebdesign/laravel-state-machine) service provider.
 
 ## Installation
@@ -114,12 +118,12 @@ NOTE: The history saves the currently authenticated user, when applying a transi
 ```php
 class Post extends Model
 {
-	// ...
+    // ...
 	
-	public function getActorId()
-	{
-		// return id;
-	}
+    public function getActorId()
+    {
+        // return id;
+    }
 }
 ```
 If the model is newly created (never been saved), so it does not have an `id` when applying
