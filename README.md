@@ -106,7 +106,7 @@ try {
     abort(500, $e->getMessage()); // if transition is not allowed, throws exception
 }
 
-$post->apply('publish'); // returns boolean
+$post->canApply('publish'); // returns boolean
 
 $post->stateHistory()->get(); // returns PostState collection for the given Post
 
