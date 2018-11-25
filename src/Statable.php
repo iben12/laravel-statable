@@ -58,6 +58,7 @@ trait Statable
         if ($this->getKey() === null && $this->saveBeforeTransition()) {
             $this->save();
         }
+
         return $this->stateMachine()->apply($transition);
     }
 
