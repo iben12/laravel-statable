@@ -94,7 +94,7 @@ class Post extends Model
 And that's it!
 
 #### Usage
-You can now access the following methods on your entity:
+You can now access the following methods on your model:
 ```php
 $post = \App\Post::first();
 
@@ -136,9 +136,17 @@ are saved in history, you can add this method to your model:
     }
 ```
 
-#### State machine
-If you want to interact directly with the `StateMachine` object, call `$model->stateMachine()`.
-You can find the documentation [here](https://github.com/sebdesign/laravel-state-machine).
+## State machine
+
+[sebdesign/laravel-state-machine](https://github.com/sebdesign/laravel-state-machine)
+provides a lot of features:
+* using Gates and Policies
+* Events
+* callbacks for guards or other tasks
+
+You can find the documentation [in the repo](https://github.com/sebdesign/laravel-state-machine).
+
+If you want to interact directly with the `StateMachine` object of your model, call `$model->stateMachine()`.
 
 ## License
 
