@@ -2,6 +2,7 @@
 
 namespace Iben\Statable\Test;
 
+use Illuminate\Database\Eloquent\Model;
 use Mockery;
 use SM\Event\TransitionEvent;
 use Iben\Statable\Services\StateHistoryManager;
@@ -13,8 +14,10 @@ class StateHistoryManagerTest extends TestCase
      */
     public function it_calls_models_history_storing_method()
     {
-        // Arrange
-        $model = Mockery::mock('model');
+        /**
+         * @var Model | Mockery\Mock
+         */
+        $model = Mockery::mock(Model::class);
         $model->shouldReceive('addHistoryLine')->with([
             'transition' => 'foo',
             'from' => 'baz',

@@ -38,6 +38,7 @@ class StatableTest extends TestCase
     public function it_returns_current_state()
     {
         $this->assertEquals('new', $this->article->stateIs());
+        $this->assertEquals('new', $this->article->state);
     }
 
     /**
@@ -83,7 +84,7 @@ class StatableTest extends TestCase
     /**
      * @test
      */
-    public function it_saves_model_before_transition_if_save_before_transition_true()
+    public function it_saves_model_before_transition_if_enabled()
     {
         $this->app['config']->set('state-machine.article.class', StatableArticleWithAutoSave::class);
 
