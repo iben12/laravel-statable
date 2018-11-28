@@ -2,9 +2,9 @@
 
 namespace Iben\Statable\Test;
 
-use Illuminate\Database\Eloquent\Model;
 use Mockery;
 use SM\Event\TransitionEvent;
+use Illuminate\Database\Eloquent\Model;
 use Iben\Statable\Services\StateHistoryManager;
 
 class StateHistoryManagerTest extends TestCase

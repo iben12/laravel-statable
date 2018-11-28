@@ -6,7 +6,6 @@ use Iben\Statable\Services\StateHistoryManager;
 
 class ServiceProviderTest extends TestCase
 {
-
     /**
      * @test
      */
