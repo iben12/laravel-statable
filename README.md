@@ -38,7 +38,7 @@ return [
         'class' => App\Post::class,
         'graph' => 'post',
 
-        'property_path': 'last_state', // should extist on model
+        'property_path' => 'last_state', // should exist on model
 
         'states' => [
             'draft',
