@@ -64,8 +64,10 @@ return [
             ]
         ],
         'callbacks' => [
-            'history' => [
-                'do' => 'StateHistoryManager@storeHistory'
+            'after' => [
+                'history' => [
+                    'do' => 'StateHistoryManager@storeHistory'
+                ]
             ]
         ]
     ]
