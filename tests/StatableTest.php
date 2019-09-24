@@ -12,7 +12,7 @@ class StatableTest extends TestCase
     /** @var StatableArticle */
     public $article;
 
-    public function setUp()
+    public function setUp() : void
     {
         parent::setUp();
         $this->app->bind(StateHistoryManager::class);

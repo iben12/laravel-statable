@@ -10,7 +10,10 @@ use Sebdesign\SM\ServiceProvider as SMServiceProvider;
 
 abstract class TestCase extends BaseTestCase
 {
-    public function setUp()
+    /**
+     * @return void
+     */
+    public function setUp() : void
     {
         parent::setUp();
 
