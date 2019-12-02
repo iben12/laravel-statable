@@ -2,8 +2,8 @@
 
 namespace Iben\Statable;
 
-use SM\StateMachine\StateMachine;
 use Iben\Statable\Models\StateHistory;
+use SM\StateMachine\StateMachine;
 
 trait Statable
 {

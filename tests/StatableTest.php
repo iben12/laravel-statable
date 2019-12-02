@@ -2,10 +2,10 @@
 
 namespace Iben\Statable\Test;
 
-use SM\StateMachine\StateMachine;
+use Iben\Statable\Services\StateHistoryManager;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Support\Facades\Auth;
-use Iben\Statable\Services\StateHistoryManager;
+use SM\StateMachine\StateMachine;
 
 class StatableTest extends TestCase
 {
