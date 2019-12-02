@@ -3,8 +3,8 @@
 namespace Iben\Statable\Test;
 
 use Iben\Statable\ServiceProvider;
-use Illuminate\Foundation\Auth\User;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Foundation\Auth\User;
 use Orchestra\Testbench\TestCase as BaseTestCase;
 use Sebdesign\SM\ServiceProvider as SMServiceProvider;
 
