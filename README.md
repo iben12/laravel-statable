@@ -9,8 +9,8 @@ This trait provides drop-in functionality to manage state and state history of a
 ## Installation
 
 Compatibility:
-* `v0.1` requires `sebdesign/laravel-state-machine:^1.3` and compatible with Laravel < 6
-* `v1.0` requires `sebdesign/laravel-state-machine:^2.0` and compatible with Laravel 6
+* `v0.1` requires `sebdesign/laravel-state-machine:^1.3` and compatible with Laravel < 5.5
+* `v1.0` requires `sebdesign/laravel-state-machine:^2.0` and compatible with Laravel 5.5
 
 So if you are below Laravel 6, require `0.1` version explicitly.
 
@@ -127,7 +127,7 @@ NOTE: The history saves the currently authenticated user, when applying a transi
 class Post extends Model
 {
     // ...
-	
+
     public function getActorId()
     {
         // return id;
