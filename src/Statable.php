@@ -3,7 +3,7 @@
 namespace Iben\Statable;
 
 use Iben\Statable\Models\StateHistory;
-use SM\StateMachine\StateMachine;
+use Sebdesign\SM\StateMachine\StateMachine;
 
 trait Statable
 {
@@ -50,30 +50,35 @@ trait Statable
 
     /**
      * @param $transition
+     * @param bool $soft
+     * @param array $context
      * @return bool
-     * @throws \SM\SMException|\Illuminate\Container\EntryNotFoundException
+     * @throws \Illuminate\Container\EntryNotFoundException
+     * @throws \SM\SMException
      */
-    public function apply($transition)
+    public function apply($transition, $soft = false, $context = [])
     {
         if ($this->getKey() === null && $this->saveBeforeTransition()) {
             $this->save();
         }
 
-        return $this->stateMachine()->apply($transition);
+        return $this->stateMachine()->apply($transition, $soft, $context);
     }
 
     /**
      * @param $transition
+     * @param array $context
      * @return bool
-     * @throws \SM\SMException|\Illuminate\Container\EntryNotFoundException
+     * @throws \Illuminate\Container\EntryNotFoundException
+     * @throws \SM\SMException
      */
-    public function canApply($transition)
+    public function canApply($transition, $context = [])
     {
-        return $this->stateMachine()->can($transition);
+        return $this->stateMachine()->can($transition, $context);
     }
 
     /**
-     * @return mixed|\SM\StateMachine\StateMachine
+     * @return mixed|\Sebdesign\SM\StateMachine\StateMachine
      * @throws \Illuminate\Container\EntryNotFoundException
      */
     public function stateMachine()

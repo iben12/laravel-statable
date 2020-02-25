@@ -19,7 +19,7 @@
     ],
     "require": {
         "php": "^7.2",
-        "sebdesign/laravel-state-machine": "^2.0"
+        "sebdesign/laravel-state-machine": "^2.1"
     },
     "require-dev": {
         "mockery/mockery": "^1.2.3",
