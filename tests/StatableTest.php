@@ -5,6 +5,9 @@ namespace Iben\Statable\Test;
 use Iben\Statable\Services\StateHistoryManager;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Event;
+use Sebdesign\SM\Event\TransitionEvent;
+use SM\Event\SMEvents;
 use SM\StateMachine\StateMachine;
 
 class StatableTest extends TestCase
@@ -51,6 +54,23 @@ class StatableTest extends TestCase
         $this->assertEquals('pending_review', $this->article->stateIs());
 
         $this->assertEquals('create', $this->article->stateHistory()->first()->transition);
+    }
+
+    /**
+     * @test
+     */
+    public function it_applies_transition_with_context()
+    {
+        Event::fake([SMEvents::POST_TRANSITION]);
+
+        $this->article->apply('create',false, ['foo' => 'bar']);
+
+        Event::assertDispatched(SMEvents::POST_TRANSITION, function ($name, TransitionEvent $event) {
+            $this->assertInstanceOf(TransitionEvent::class, $event);
+            $this->assertEquals(['foo' => 'bar'], $event->getContext());
+
+            return true;
+        });
     }
 
     /**
@@ -105,6 +125,23 @@ class StatableTest extends TestCase
     {
         $this->assertTrue($this->article->canApply('create'));
         $this->assertFalse($this->article->canApply('approve'));
+    }
+
+    /**
+     * @test
+     */
+    public function it_tests_transition_applicable_with_context()
+    {
+        Event::fake([SMEvents::TEST_TRANSITION]);
+
+        $this->assertTrue($this->article->canApply('create', ['foo' => 'bar']));
+
+        Event::assertDispatched(SMEvents::TEST_TRANSITION, function ($name, TransitionEvent $event) {
+            $this->assertInstanceOf(TransitionEvent::class, $event);
+            $this->assertEquals(['foo' => 'bar'], $event->getContext());
+
+            return true;
+        });
     }
 
     /**
