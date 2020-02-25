@@ -63,7 +63,7 @@ class StatableTest extends TestCase
     {
         Event::fake([SMEvents::POST_TRANSITION]);
 
-        $this->article->apply('create',false, ['foo' => 'bar']);
+        $this->article->apply('create', false, ['foo' => 'bar']);
 
         Event::assertDispatched(SMEvents::POST_TRANSITION, function ($name, TransitionEvent $event) {
             $this->assertInstanceOf(TransitionEvent::class, $event);
