@@ -6,6 +6,7 @@ use Iben\Statable\Services\StateHistoryManager;
 use Illuminate\Database\Eloquent\Model;
 use Mockery;
 use SM\Event\TransitionEvent;
+use SM\StateMachine\StateMachine;
 
 class StateHistoryManagerTest extends TestCase
 {
@@ -24,7 +25,7 @@ class StateHistoryManagerTest extends TestCase
             'to' => 'bar',
         ]);
 
-        $sm = Mockery::mock('sm');
+        $sm = Mockery::mock(StateMachine::class);
         $sm->shouldReceive('getObject')->andReturn($model);
         $sm->shouldReceive('getState')->andReturn('bar');
 
