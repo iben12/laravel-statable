@@ -3,11 +3,7 @@
 namespace Iben\Statable\Test;
 
 use Iben\Statable\Models\StateHistory;
-<<<<<<< HEAD
-use Iben\Statable\Services\StateHistoryManager; 
-=======
 use Iben\Statable\Services\StateHistoryManager;
->>>>>>> Remove unused imports
 
 class CustomStateHistory extends StateHistory
 {
