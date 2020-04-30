@@ -2,13 +2,8 @@
 
 namespace Iben\Statable\Test;
 
+use Iben\Statable\Models\StateHistory;
 use Iben\Statable\Services\StateHistoryManager;
-use Illuminate\Foundation\Auth\User;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Event;
-use Sebdesign\SM\Event\TransitionEvent;
-use SM\Event\SMEvents;
-use SM\StateMachine\StateMachine;
 
 class StatableTest extends TestCase
 {
