@@ -3,6 +3,7 @@
 namespace Iben\Statable;
 
 use Iben\Statable\Models\StateHistory;
+use Illuminate\Support\Facades\Config;
 use Sebdesign\SM\StateMachine\StateMachine;
 
 trait Statable
@@ -17,7 +18,10 @@ trait Statable
      */
     public function stateHistory()
     {
-        return $this->morphMany(StateHistory::class, 'statable');
+        return $this->morphMany(
+            Config::get('laravel-statable.models.state_history', StateHistory::class),
+            'statable'
+        );
     }
 
     /**
