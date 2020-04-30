@@ -11,7 +11,9 @@ use Sebdesign\SM\Event\TransitionEvent;
 use SM\Event\SMEvents;
 use SM\StateMachine\StateMachine;
 
-class CustomStateHistory extends StateHistory {}
+class CustomStateHistory extends StateHistory
+{
+}
 
 class ConfigTest extends TestCase
 {
