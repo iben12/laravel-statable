@@ -36,3 +36,4 @@ class ConfigTest extends TestCase
         $this->assertInstanceOf(CustomStateHistory::class, $this->article->stateHistory()->first());
     }
 }
+

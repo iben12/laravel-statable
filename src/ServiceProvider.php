@@ -22,6 +22,7 @@ class ServiceProvider extends BaseServiceProvider
         if ($this->app->runningInConsole()) {
             $this->publishes([
                 __DIR__.'/../config/state-machine.php' => config_path('state-machine.php'),
+                __DIR__.'/../config/laravel-statable.php' => config_path('laravel-statable.php'),
             ], 'config');
         }
 
