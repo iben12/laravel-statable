@@ -3,11 +3,9 @@
 namespace Iben\Statable\Test;
 
 use Iben\Statable\Models\StateHistory;
-use Iben\Statable\Services\StateHistoryManager;
+use Iben\Statable\Services\StateHistoryManager; 
 
-class CustomStateHistory extends StateHistory
-{
-}
+class CustomStateHistory extends StateHistory {}
 
 class ConfigTest extends TestCase
 {
@@ -36,3 +34,4 @@ class ConfigTest extends TestCase
         $this->assertInstanceOf(CustomStateHistory::class, $this->article->stateHistory()->first());
     }
 }
+
