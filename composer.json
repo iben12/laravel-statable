@@ -18,7 +18,7 @@
         }
     ],
     "require": {
-        "php": "^7.2",
+        "php": "^8.0",
         "sebdesign/laravel-state-machine": "^3.0"
     },
     "require-dev": {
