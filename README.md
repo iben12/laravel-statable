@@ -12,9 +12,9 @@ Compatibility:
 
 | Version | Upstream     | Laravel       |
 | :-----: | :----------- | :-----------: |
-| `v0.1`  | `sebdesign/laravel-state-machine:^1.3` | < 5.5 |
-| `v1.0`  | `sebdesign/laravel-state-machine:^2.0` | < 5.5 |
-| `v1.4`  | `sebdesign/laravel-state-machine:^3.0` | < 7.0 |
+| `v0.1`  | `sebdesign/laravel-state-machine:^1.3` | < 5.5   |
+| `v1.3`  | `sebdesign/laravel-state-machine:^2.0` | >= 5.5  |
+| `v1.4`  | `sebdesign/laravel-state-machine:^3.0` | >= 7.0  |
 
 > So if you are below Laravel 5.5, require `0.1` version explicitly. For Laravel below 7 require version `v1.3`.
 
