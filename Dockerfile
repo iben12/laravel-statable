@@ -2,7 +2,7 @@ FROM composer:latest as composer
 
 WORKDIR /app
 
-COPY composer.json .
+COPY *.json .
 RUN composer install
 
 
