@@ -6,6 +6,6 @@ metadata:
     github.com/project-slug: iben12/laravel-statable
   namespace: default
 spec:
-  type: other
-  lifecycle: unknown
+  type: library
+  lifecycle: production
   owner: Group:default/backstage
