@@ -10,11 +10,12 @@ This trait provides drop-in functionality to manage state and state history of a
 
 Compatibility:
 
-| Version | Upstream     | Laravel       |
-| :-----: | :----------- | :-----------: |
-| `v0.1`  | `sebdesign/laravel-state-machine:^1.3` | < 5.5   |
-| `v1.3`  | `sebdesign/laravel-state-machine:^2.0` | >= 5.5  |
-| `v1.4`  | `sebdesign/laravel-state-machine:^3.0` | >= 7.0  |
+| Version | Upstream     | Laravel       | PHP   |
+| :-----: | :----------- | :-----------: | :---: |
+| `v0.1`  | `sebdesign/laravel-state-machine:^1.3` | < 5.5   | |
+| `v1.3`  | `sebdesign/laravel-state-machine:^2.0` | >= 5.5  | |
+| `v1.4`  | `sebdesign/laravel-state-machine:^3.0` | >= 7.0  | >= 7.3 |
+| `v1.5`  | `sebdesign/laravel-state-machine:^3.2` | >= 7.0  | >= 8.0 |
 
 > So if you are below Laravel 5.5, require `0.1` version explicitly. For Laravel below 7 require version `v1.3`.
 
