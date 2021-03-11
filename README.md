@@ -1,6 +1,6 @@
 # Statable trait for Laravel Eloquent models
 
-[![Build Status](https://travis-ci.org/iben12/laravel-statable.svg?branch=master)](https://travis-ci.org/iben12/laravel-statable)
+![Run tests](https://github.com/iben12/laravel-statable/workflows/Run%20tests/badge.svg?event=push)
 [![StyleCI](https://github.styleci.io/repos/158932879/shield?branch=master)](https://github.styleci.io/repos/158932879)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/iben12/laravel-statable/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/iben12/laravel-statable/?branch=master)
 
