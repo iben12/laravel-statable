@@ -3,7 +3,7 @@ FROM composer:latest as composer
 
 WORKDIR /app
 
-COPY *.json .
+COPY composer.json .
 RUN composer install
 
 

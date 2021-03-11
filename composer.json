@@ -19,7 +19,7 @@
     ],
     "require": {
         "php": "^7.3|^8.0",
-        "sebdesign/laravel-state-machine": "^3.0"
+        "sebdesign/laravel-state-machine": "^3.2"
     },
     "require-dev": {
         "mockery/mockery": "^1.2.3",
@@ -27,12 +27,6 @@
         "phpunit/phpunit": "^9.5",
         "roave/security-advisories": "dev-master"
     },
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/sebdesign/state-machine"
-        }
-    ],
     "autoload": {
         "psr-4": {
             "Iben\\Statable\\": "src"
