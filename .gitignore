@@ -2,3 +2,6 @@ build
 docs
 vendor
 .idea
+auth.json
+composer.lock
+.phpunit.result.cache
