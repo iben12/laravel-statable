@@ -23,7 +23,7 @@
     },
     "require-dev": {
         "mockery/mockery": "^1.2.3",
-        "orchestra/testbench": "^5.1",
+        "orchestra/testbench": "^5.19.0",
         "phpunit/phpunit": "^9.5",
         "roave/security-advisories": "dev-master"
     },
